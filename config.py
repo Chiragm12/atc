@@ -30,21 +30,22 @@ DATASET_CONFIG = {
 }
 
 # Model configuration optimized for RTX 3050
+# Enhanced model configuration
 MODEL_CONFIG = {
-    'batch_size': 32,
-    'epochs': 20,
-    'learning_rate': 0.001,
-    'weight_decay': 1e-4,
+    'batch_size': 12,      # Smaller batch for better generalization
+    'epochs': 40,          # More epochs with early stopping
+    'learning_rate': 0.0001,  # Lower learning rate
+    'weight_decay': 0.01,   # Higher weight decay
     'test_size': 0.2,
-    'num_workers': 4
+    'num_workers': 0        # Set to 0 to avoid multiprocessing issues
 }
 
-# ATC scoring criteria
+# Updated ATC_SCORING_CRITERIA - More realistic ranges
 ATC_SCORING_CRITERIA = {
-    'body_length': {'min': 120, 'max': 180, 'weight': 0.15, 'unit': 'cm'},
-    'height_at_withers': {'min': 110, 'max': 150, 'weight': 0.20, 'unit': 'cm'},
-    'chest_width': {'min': 35, 'max': 55, 'weight': 0.15, 'unit': 'cm'},
-    'rump_angle': {'min': 15, 'max': 35, 'weight': 0.10, 'unit': 'degrees'},
+    'body_length': {'min': 130, 'max': 170, 'weight': 0.15, 'unit': 'cm'},  # Narrower range
+    'height_at_withers': {'min': 120, 'max': 140, 'weight': 0.20, 'unit': 'cm'},  # Narrower range
+    'chest_width': {'min': 40, 'max': 50, 'weight': 0.15, 'unit': 'cm'},  # Narrower range
+    'rump_angle': {'min': 20, 'max': 30, 'weight': 0.10, 'unit': 'degrees'},  # Narrower range
     'udder_attachment': {'min': 1, 'max': 9, 'weight': 0.20, 'unit': 'score'},
     'leg_structure': {'min': 1, 'max': 9, 'weight': 0.10, 'unit': 'score'},
     'overall_conformation': {'min': 1, 'max': 9, 'weight': 0.10, 'unit': 'score'}
